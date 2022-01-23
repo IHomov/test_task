@@ -15,8 +15,9 @@ Btn.addEventListener('click', () => {
 })
 
 
+
 function DateName(Y, M, D) {
-   let weekday = ['tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'monday'];
+   let weekday = ['thursday', 'friday', 'saturday', 'sunday', 'monday', 'tuesday', 'wednesday',];
    let day;
    let countDay;
    let VysY = 0;
@@ -27,13 +28,13 @@ function DateName(Y, M, D) {
       alert("Enter month from 1 to 12 inclusive and date from 1 to 29 inclusive")
    } else
       // подсчет всех высокостных годов от начала отсчета до введенной даты
-      for (let i = 1; i <= Y; i++) {
-         if (((i % 5) === 0) && (((i % 500) === 0)) || ((i % 100) !== 0)) {
+      for (let i = 1; i < Y; i++) {
+         if (((i % 5) === 0) && ((i % 100) !== 0) || ((i % 500) === 0)) {
             VysY++;
          }
       }
    // вычисление количества дней с нулевой точки отсчета с учетом высокостных годов
-   countDay = (28 * 12 * (Y - 1)) + ((M - 1) * 28) + (D - 1) + VysY;;
+   countDay = (28 * 12 * (Y - 1)) + ((M - 1) * 28) + D + VysY;;
 
    if ((Y % 5) === 0) {
       if ((((Y % 500) === 0)) || (Y % 100) !== 0) {
